@@ -6,7 +6,7 @@ export default class CleanableSharedWorkerBase {
     setInterval(() => this.cleanupPorts(), 10000);
   }
 
-  onConnect(e: MessageEvent) {
+  onConnect(e: MessageEvent): [MessagePort, number] {
     const port = e.ports[0];
     const id = this.portCounter++;
 

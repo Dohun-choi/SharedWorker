@@ -1,6 +1,8 @@
 import CleanableSharedWorkerBase from "./CleanableSharedWorkerBase.js";
 
-const imageArray = [];
+declare const self: SharedWorkerGlobalScope;
+
+const imageArray: string[] = [];
 
 const workerBase = new CleanableSharedWorkerBase();
 
@@ -18,7 +20,7 @@ self.onconnect = function (event) {
   };
 };
 
-async function handleRequest(animal) {
+async function handleRequest(animal: string) {
   const requestUrl = animal === "dog" ? "https://dog.ceo/api/breeds/image/random" : "https://cataas.com/cat?json=true";
 
   try {
